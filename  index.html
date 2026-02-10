@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>L&amp;D Dashboard - HR0003</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="vi"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;HR0003 - Learning &amp; Development System&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #F3F4F6; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.active-nav { background-color: #E0E7FF; color: #4F46E5; border-right: 4px solid #4F46E5; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hidden-section { display: none; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.fade-in { animation: fadeIn 0.3s ease-in-out; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Custom Scrollbar */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar { width: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-track { background: #f1f1f1; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb:hover { background: #94a3b8; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="text-slate-800 h-screen flex overflow-hidden"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;aside class="w-64 bg-white border-r border-gray-200 flex flex-col z-20 shadow-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="h-16 flex items-center px-6 border-b border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold mr-3"&gt;HR&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="font-bold text-lg text-slate-800 tracking-tight"&gt;HR0003 System&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="flex-1 py-6 space-y-1 px-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"&gt;Quản lý đào tạo&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" onclick="switchTab('dashboard')" id="nav-dashboard" class="flex items-center px-3 py-2.5 rounded-lg text-slate-600 hover:bg-gray-50 transition active-nav group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fa-solid fa-chart-pie w-6 text-center mr-2 group-hover:text-indigo-600"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-medium"&gt;Dashboard&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" onclick="switchTab('courses')" id="nav-courses" class="flex items-center px-3 py-2.5 rounded-lg text-slate-600 hover:bg-gray-50 transition group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fa-solid fa-book-open w-6 text-center mr-2 group-hover:text-indigo-600"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-medium"&gt;Khoá học (LMS)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" onclick="switchTab('employees')" id="nav-employees" class="flex items-center px-3 py-2.5 rounded-lg text-slate-600 hover:bg-gray-50 transition group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fa-solid fa-users w-6 text-center mr-2 group-hover:text-indigo-600"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-medium"&gt;Hồ sơ học viên&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6"&gt;Cấu hình&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">             </span>&lt;a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-slate-600 hover:bg-gray-50 transition group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fa-solid fa-gear w-6 text-center mr-2 group-hover:text-indigo-600"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-medium"&gt;Cài đặt hệ thống&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="p-4 border-t border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://ui-avatars.com/api/?name=Truong+Le&amp;background=random" class="w-9 h-9 rounded-full border-2 border-white shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="ml-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm font-semibold text-slate-700"&gt;Trường Lê&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs text-indigo-600 font-medium"&gt;L&amp;D Specialist&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/aside&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="flex-1 flex flex-col h-full overflow-hidden bg-slate-50 relative"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="h-16 bg-white border-b border-gray-200 flex justify-between items-center px-8 shadow-sm z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 id="page-title" class="text-xl font-bold text-slate-800"&gt;Tổng quan đào tạo&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center space-x-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="p-2 text-gray-400 hover:text-indigo-600 transition relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i class="fa-solid fa-bell text-lg"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i class="fa-solid fa-plus mr-2"&gt;&lt;/i&gt; Tạo khoá học mới</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex-1 overflow-y-auto p-8" id="main-content"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="view-dashboard" class="fade-in space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-4 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs font-semibold text-gray-500 uppercase"&gt;Tỷ lệ hoàn thành&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-2xl font-bold text-slate-800 mt-1"&gt;87.5%&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs text-green-600 mt-1 flex items-center"&gt;&lt;i class="fa-solid fa-arrow-trend-up mr-1"&gt;&lt;/i&gt; +2.4% so với T1&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-2 bg-indigo-50 rounded-lg text-indigo-600"&gt;&lt;i class="fa-solid fa-check-circle text-xl"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs font-semibold text-gray-500 uppercase"&gt;Giờ học tích lũy&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-2xl font-bold text-slate-800 mt-1"&gt;1,240h&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs text-green-600 mt-1 flex items-center"&gt;&lt;i class="fa-solid fa-bolt mr-1"&gt;&lt;/i&gt; Đạt 90% KPI Quý&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-2 bg-blue-50 rounded-lg text-blue-600"&gt;&lt;i class="fa-solid fa-clock text-xl"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs font-semibold text-gray-500 uppercase"&gt;Học viên Active&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-2xl font-bold text-slate-800 mt-1"&gt;342&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs text-gray-400 mt-1"&gt;Trên tổng số 350 NV&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-2 bg-orange-50 rounded-lg text-orange-600"&gt;&lt;i class="fa-solid fa-user-graduate text-xl"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs font-semibold text-gray-500 uppercase"&gt;Ngân sách L&amp;D&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-2xl font-bold text-slate-800 mt-1"&gt;45%&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs text-gray-400 mt-1"&gt;Đã sử dụng (YTD)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-2 bg-emerald-50 rounded-lg text-emerald-600"&gt;&lt;i class="fa-solid fa-coins text-xl"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 lg:grid-cols-3 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 lg:col-span-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="font-bold text-slate-700 mb-4"&gt;Xu hướng đào tạo theo phòng ban&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="h-64"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;canvas id="mainChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="font-bold text-slate-700 mb-4"&gt;Năng lực cốt lõi (Skill Gap)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between text-sm mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="font-medium"&gt;Kỹ năng Lãnh đạo&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-indigo-600 font-bold"&gt;75%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-full bg-gray-100 rounded-full h-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-indigo-600 h-2 rounded-full" style="width: 75%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between text-sm mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="font-medium"&gt;Kỹ năng Số (Digital)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-indigo-600 font-bold"&gt;60%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-full bg-gray-100 rounded-full h-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-indigo-600 h-2 rounded-full" style="width: 60%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between text-sm mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="font-medium"&gt;Giao tiếp &amp; Hợp tác&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-indigo-600 font-bold"&gt;90%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-full bg-gray-100 rounded-full h-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-indigo-600 h-2 rounded-full" style="width: 90%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-yellow-800"&gt;&lt;i class="fa-solid fa-lightbulb mr-1"&gt;&lt;/i&gt; &lt;strong&gt;Gợi ý AI:&lt;/strong&gt; Nên tổ chức thêm khoá "Data Mindset" cho khối Kinh doanh trong Q2.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="view-employees" class="hidden-section fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative w-64"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="text" id="searchEmployee" onkeyup="filterEmployees()" placeholder="Tìm kiếm nhân viên..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fa-solid fa-search absolute left-3 top-2.5 text-gray-400"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex space-x-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-600 hover:bg-gray-50"&gt;&lt;i class="fa-solid fa-filter mr-1"&gt;&lt;/i&gt; Bộ lọc&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-600 hover:bg-gray-50"&gt;&lt;i class="fa-solid fa-download mr-1"&gt;&lt;/i&gt; Xuất Excel&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;table class="w-full text-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;thead class="bg-gray-50 text-gray-500 text-xs uppercase font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;th class="px-6 py-4"&gt;Nhân viên&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;th class="px-6 py-4"&gt;Phòng ban&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;th class="px-6 py-4"&gt;Trạng thái học tập&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;th class="px-6 py-4 text-center"&gt;Tiến độ&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;th class="px-6 py-4 text-right"&gt;Hành động&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tbody class="divide-y divide-gray-100 text-sm text-slate-700" id="employee-table-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="view-courses" class="hidden-section fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="course-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center backdrop-blur-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-white w-full max-w-lg rounded-xl shadow-2xl transform transition-all scale-100 p-6 relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"&gt;&lt;i class="fa-solid fa-times text-xl"&gt;&lt;/i&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-6 flex justify-end space-x-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="closeModal()" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg text-sm"&gt;Đóng&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700"&gt;Cập nhật dữ liệu&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- DATA MOCKUP (GIẢ LẬP DỮ LIỆU DB) ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const employees = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 1, name: "Nguyễn Văn An", role: "Sales Executive", dept: "Kinh doanh", status: "Active", progress: 85, avatar: "https://ui-avatars.com/api/?name=NV+A" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 2, name: "Trần Thị Bích", role: "Marketing Lead", dept: "Marketing", status: "Warning", progress: 45, avatar: "https://ui-avatars.com/api/?name=TT+B" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 3, name: "Lê Hoàng Cường", role: "HR Officer", dept: "Nhân sự", status: "Active", progress: 92, avatar: "https://ui-avatars.com/api/?name=LH+C" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 4, name: "Phạm Minh Duy", role: "Developer", dept: "Kỹ thuật", status: "Inactive", progress: 10, avatar: "https://ui-avatars.com/api/?name=PM+D" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 5, name: "Hoàng Thuỳ Linh", role: "Accountant", dept: "Tài chính", status: "Active", progress: 78, avatar: "https://ui-avatars.com/api/?name=HT+L" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const courses = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ title: "Onboarding: Văn hoá HR0003", type: "Bắt buộc", duration: "4h", students: 120, img: "https://via.placeholder.com/400x200/4F46E5/FFFFFF?text=Culture" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ title: "Kỹ năng Giao tiếp Hiệu quả", type: "Kỹ năng mềm", duration: "8h", students: 85, img: "https://via.placeholder.com/400x200/10B981/FFFFFF?text=Communication" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ title: "Excel nâng cao cho HR", type: "Chuyên môn", duration: "12h", students: 45, img: "https://via.placeholder.com/400x200/F59E0B/FFFFFF?text=Excel+Data" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ title: "Design Thinking cơ bản", type: "Tự chọn", duration: "6h", students: 30, img: "https://via.placeholder.com/400x200/EC4899/FFFFFF?text=Innovation" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- NAVIGATION LOGIC ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function switchTab(tabName) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Hide all sections</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('view-dashboard').classList.add('hidden-section');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('view-employees').classList.add('hidden-section');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('view-courses').classList.add('hidden-section');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Remove active class from nav</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('aside nav a').forEach(el =&gt; el.classList.remove('active-nav'));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Show selected section</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(`view-${tabName}`).classList.remove('hidden-section');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(`nav-${tabName}`).classList.add('active-nav');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Update Header Title</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const titles = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'dashboard': 'Tổng quan đào tạo',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'employees': 'Quản lý Hồ sơ Học viên',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'courses': 'Thư viện Khoá học'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('page-title').innerText = titles[tabName];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- RENDER FUNCTIONS ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function renderEmployees() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tbody = document.getElementById('employee-table-body');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>tbody.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>employees.forEach(emp =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let statusBadge = emp.status === 'Active'<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>? '&lt;span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold"&gt;Đang học tốt&lt;/span&gt;'<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>: (emp.status === 'Warning' ? '&lt;span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold"&gt;Chậm tiến độ&lt;/span&gt;' : '&lt;span class="px-2 py-1 bg-red-100 text-red-700 rounded-full text-xs font-bold"&gt;Chưa học&lt;/span&gt;');</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>let row = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;tr class="hover:bg-gray-50 transition cursor-pointer" onclick="openEmpModal('${emp.name}')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td class="px-6 py-4 flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="${emp.avatar}" class="w-8 h-8 rounded-full mr-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="font-medium text-slate-800"&gt;${emp.name}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-gray-500"&gt;${emp.role}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td class="px-6 py-4 text-gray-500"&gt;${emp.dept}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td class="px-6 py-4"&gt;${statusBadge}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td class="px-6 py-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-xs font-bold mr-2 w-6"&gt;${emp.progress}%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="w-24 bg-gray-200 rounded-full h-1.5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-indigo-600 h-1.5 rounded-full" style="width: ${emp.progress}%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td class="px-6 py-4 text-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="text-gray-400 hover:text-indigo-600"&gt;&lt;i class="fa-solid fa-ellipsis-vertical"&gt;&lt;/i&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tbody.innerHTML += row;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function renderCourses() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const grid = document.getElementById('course-grid');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>courses.forEach(course =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let card = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group cursor-pointer" onclick="alert('Chi tiết khoá học: ${course.title}')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="h-32 bg-gray-200 relative overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="${course.img}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-bold shadow-sm"&gt;${course.type}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-slate-800 mb-2 line-clamp-1"&gt;${course.title}&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between text-sm text-gray-500 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;&lt;i class="fa-regular fa-clock mr-1"&gt;&lt;/i&gt; ${course.duration}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;&lt;i class="fa-solid fa-user-group mr-1"&gt;&lt;/i&gt; ${course.students} học viên&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="w-full py-2 bg-indigo-50 text-indigo-700 font-medium rounded-lg hover:bg-indigo-100 transition text-sm"&gt;Xem nội dung&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid.innerHTML += card;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- FILTER FUNCTION ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function filterEmployees() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const input = document.getElementById('searchEmployee').value.toUpperCase();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const rows = document.getElementById('employee-table-body').getElementsByTagName('tr');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; rows.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const nameCol = rows[i].getElementsByTagName('td')[0];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (nameCol) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const txtValue = nameCol.textContent || nameCol.innerText;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>rows[i].style.display = txtValue.toUpperCase().indexOf(input) &gt; -1 ? "" : "none";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- MODAL LOGIC ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function openEmpModal(name) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('modal-overlay').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('modal-content').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl"&gt;👤&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold text-slate-800"&gt;${name}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm text-gray-500"&gt;Hồ sơ năng lực &amp; Lịch sử đào tạo&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-gray-50 p-3 rounded-lg flex justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-sm text-gray-600"&gt;Trạng thái:&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-sm font-bold text-green-600"&gt;Đang hoạt động&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-gray-50 p-3 rounded-lg flex justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-sm text-gray-600"&gt;Khoá gần nhất:&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-sm font-bold text-slate-800"&gt;Kỹ năng giao tiếp&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-gray-50 p-3 rounded-lg flex justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-sm text-gray-600"&gt;Điểm trung bình:&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-sm font-bold text-indigo-600"&gt;8.5/10&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function closeModal() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('modal-overlay').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- INIT CHART ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const ctx = document.getElementById('mainChart').getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(ctx, {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>type: 'bar',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Kinh doanh', 'Marketing', 'Kỹ thuật', 'Nhân sự', 'Tài chính'],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Giờ học trung bình/người',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>data: [12, 19, 8, 15, 10],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: '#4F46E5',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderRadius: 4</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Mục tiêu',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>data: [15, 15, 15, 15, 15],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>type: 'line',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderColor: '#94A3B8',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderDash: [5, 5],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>pointRadius: 0</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>scales: { y: { beginAtZero: true } },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>plugins: { legend: { position: 'bottom' } }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- INITIALIZE ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderEmployees();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderCourses();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Set dashboard active by default</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('nav-dashboard').classList.add('active-nav');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
